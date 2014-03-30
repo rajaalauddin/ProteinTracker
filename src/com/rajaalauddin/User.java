@@ -3,9 +3,9 @@ package com.rajaalauddin;
 public class User {
 
 	private int id;
-	private String name;
-	private int total;
-	private int goal;
+	private String name;	
+	private ProteinData proteinData = new ProteinData();
+	
 	public int getId() {
 		return id;
 	}
@@ -18,19 +18,11 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getTotal() {
-		return total;
+	public ProteinData getProteinData() {
+		return proteinData;
 	}
-	public void setTotal(int total) {
-		this.total = total;
+	public void setProteinData(ProteinData proteinData) {
+		this.proteinData = proteinData;
 	}
-	public int getGoal() {
-		return goal;
-	}
-	public void setGoal(int goal) {
-		this.goal = goal;
-	}
-	
-	
 	
 }

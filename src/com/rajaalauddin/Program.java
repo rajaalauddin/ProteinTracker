@@ -16,7 +16,7 @@ public class Program {
 		// create user
 		User user = new User();
 		user.setName("Torres");
-		user.setGoal(250);
+		user.getProteinData().setGoal(250);
 		session.save(user);
 		
 		session.getTransaction().commit();
@@ -25,9 +25,9 @@ public class Program {
 		
 		User loadedUser = (User) session.get(User.class, 1);
 		System.out.println(loadedUser.getName());
-		System.out.println(loadedUser.getGoal());
+		System.out.println(loadedUser.getProteinData().getGoal());
 		
-		loadedUser.setTotal(loadedUser.getTotal() + 50);
+		loadedUser.getProteinData().setTotal(loadedUser.getProteinData().getTotal() + 50);
 		
 		session.getTransaction().commit();
 		session.close();

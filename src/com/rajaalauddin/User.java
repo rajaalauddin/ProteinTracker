@@ -1,14 +1,14 @@
 package com.rajaalauddin;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 
 	private int id;
 	private String name;	
 	private ProteinData proteinData = new ProteinData();
-	private Set<UserHistory> history = new HashSet<UserHistory>();
+	private List<UserHistory> history = new ArrayList<UserHistory>();
 	
 	public int getId() {
 		return id;
@@ -28,11 +28,16 @@ public class User {
 	public void setProteinData(ProteinData proteinData) {
 		this.proteinData = proteinData;
 	}
-	public Set<UserHistory> getHistory() {
+	public List<UserHistory> getHistory() {
 		return history;
 	}
-	public void setHistory(Set<UserHistory> history) {
+	public void setHistory(List<UserHistory> history) {
 		this.history = history;
+	}
+	
+	public void addHistory(UserHistory historyItem) {
+		historyItem.setUser(this);
+		history.add(historyItem);
 	}
 	
 }

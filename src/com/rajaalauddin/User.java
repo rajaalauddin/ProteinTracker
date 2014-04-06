@@ -9,6 +9,7 @@ public class User {
 	private String name;	
 	private ProteinData proteinData = new ProteinData();
 	private List<UserHistory> history = new ArrayList<UserHistory>();
+	private GoalAlert goalAlert;
 	
 	public User() {
 		setProteinData(new ProteinData());
@@ -43,6 +44,12 @@ public class User {
 	public void addHistory(UserHistory historyItem) {
 		historyItem.setUser(this);
 		history.add(historyItem);
+	}
+	public GoalAlert getGoalAlert() {
+		return goalAlert;
+	}
+	public void setGoalAlert(GoalAlert goalAlert) {
+		this.goalAlert = goalAlert;
 	}
 	
 }

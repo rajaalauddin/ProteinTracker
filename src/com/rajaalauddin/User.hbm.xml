@@ -17,9 +17,13 @@
         	<list-index column="POSITION" />
         	<one-to-many class="com.rajaalauddin.UserHistory"/>
         </list>
-        <join table="USER_ALERT" optional="true">
+        <!-- <join table="USER_ALERT" optional="true">
         	<key column="USER_ID"/>
         	<many-to-one name="goalAlert" column="GOALALERT_ID" not-null="true" unique="true" cascade="save-update"/>
-        </join>
+        </join> -->
+        <set name="goalAlerts" table="USER_ALERT" cascade="save-update">
+        	<key column="USER_ID" />
+        	<many-to-many class="com.rajaalauddin.GoalAlert" column="GOALALERT_ID" />
+        </set>
     </class>
 </hibernate-mapping>

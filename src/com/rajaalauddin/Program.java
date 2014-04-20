@@ -54,11 +54,12 @@ public class Program {
 		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
 		
-		Query query = session.createQuery("from User");
-		List<User> users = query.list();
+		Query query = session.getNamedQuery("AllGoalsAlert");
 		
-		for(User user : users) {
-			System.out.println(user.getName());
+		List<GoalAlert> alerts = query.list();
+		
+		for(GoalAlert alert : alerts) {
+			System.out.println(alert.getMessage());
 		}
 		
 		session.getTransaction().commit();	

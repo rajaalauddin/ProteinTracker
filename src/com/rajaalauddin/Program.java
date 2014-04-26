@@ -52,16 +52,17 @@ public class Program {
 		PopulateSampleData();
 		
 		Session session = HibernateUtilities.getSessionFactory().openSession();
+		session.enableFilter("nameFilter").setParameter("name", "j%");
 		session.beginTransaction();
 		
-		Query query = session.getNamedQuery("AllGoalsAlert");
+		Query query = session.createQuery("from User");
 		Query queryCr = session.createQuery("update ProteinData pd set pd.total = 0");
 		queryCr.executeUpdate();
 		
-		List<GoalAlert> alerts = query.list();
+		List<User> users = query.list();
 		
-		for(GoalAlert alert : alerts) {
-			System.out.println(alert.getMessage());
+		for(User user : users) {
+			System.out.println(user.getName());
 		}
 		
 		User u = (User) session.load(User.class, 1);

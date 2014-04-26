@@ -4,6 +4,7 @@
 <!-- Generated Apr 5, 2014 4:20:34 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.rajaalauddin.UserHistory" table="USERHISTORY">
+    	<cache usage="read-only" />
         <id name="id" type="int">
             <column name="ID" />
             <generator class="increment" />

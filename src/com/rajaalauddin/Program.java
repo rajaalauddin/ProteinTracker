@@ -55,6 +55,8 @@ public class Program {
 		session.beginTransaction();
 		
 		Query query = session.getNamedQuery("AllGoalsAlert");
+		Query queryCr = session.createQuery("update ProteinData pd set pd.total = 0");
+		queryCr.executeUpdate();
 		
 		List<GoalAlert> alerts = query.list();
 		

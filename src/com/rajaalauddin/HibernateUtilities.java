@@ -13,7 +13,7 @@ public class HibernateUtilities {
 	
 	static {
 		try {
-			Configuration conf = new Configuration().configure();
+			Configuration conf = new Configuration().setInterceptor(new AuditInterceptor()).configure();
 
 			serviceRegistry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
   			sessionFactory = conf.buildSessionFactory(serviceRegistry);
